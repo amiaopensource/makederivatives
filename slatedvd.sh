@@ -5,6 +5,10 @@
 SLATEFILE=/Users/davidrice/Desktop/slate.tif
 TMPSLATE="/tmp/slate.mov"
 
+[ ! `which ffmpeg` ] && { echo Missing ffmpeg ; exit 1 ;};
+[ ! `which dvdauthor` ] && { echo Missing dvdauthor ; exit 1 ;};
+[ ! `which mkisofs` ] && { echo Missing mkisofs ; exit 1 ;};
+
 cleanup(){
 	rm "$TMPSLATE"
 	exit $1

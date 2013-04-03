@@ -6,6 +6,8 @@ FRAMESIZE="640x480" # example 640x480
 OUTFILESUFFIX="_mezz.mp4"
 TMPSLATE="/tmp/slate.mov"
 
+[ ! `which ffmpeg` ] && { echo Missing ffmpeg ; exit 1 ;};
+
 cleanup(){
 	rm "$TMPSLATE"
 	exit $1
