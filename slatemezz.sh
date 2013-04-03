@@ -6,6 +6,12 @@ FRAMESIZE="640x480" # example 640x480
 OUTFILESUFFIX="_mezz.mp4"
 TMPSLATE="/tmp/slate.mov"
 
+cleanup(){
+  rm "$TMPSLATE"
+  exit $1
+}
+trap clean_up SIGHUP SIGINT SIGTERM
+
 [ ! -s "$1" ] && { echo Please run the script with one or many arguments. Arguments should be video files to be transcoded. ; exit 1 ;};
 [ ! -s "$SLATEFILE" ] && { echo I can\'t find this slate file you\'re referring to. ; exit 2 ;};
 
